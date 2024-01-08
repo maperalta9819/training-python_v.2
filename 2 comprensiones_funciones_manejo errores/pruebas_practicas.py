@@ -71,3 +71,33 @@ def message_creator(text):
 text = 'computadora'
 response = message_creator(text)
 print(response)
+
+
+"""
+Para resolver este desafío, tu reto es utilizar la función map de Python y una función lambda para transformar una lista de números. Debes retornar una lista en la que cada número de la lista original sea multiplicado por dos.
+
+La función multiply_numbers recibirá como entrada una lista con números. Finalmente, la función retornará la lista transformada.
+"""
+def multiply_numbers(numbers):
+    # Escribe tu solución 👇
+    #result = list(map(lambda multiply_numbers: multiply_numbers*2,numbers))
+    #return result
+    return list(map(lambda multiply_numbers: multiply_numbers*2,numbers))
+
+numbers = [1, 2, 3, 4]
+response = multiply_numbers(numbers)
+print(response)
+
+"""
+Para resolver este desafío, tu reto es usar la función filter de Python y una función lambda para filtrar una lista de palabras, retornando una lista solo con las que cumplan con la condición de tener 4 o más letras.
+
+La función filter_by_length recibirá como entrada una lista con palabras. Finalmente, la función retornará la lista filtrada.
+"""
+def filter_by_length(words):
+   # Escribe tu solución 👇
+
+   return list(filter(lambda filtered_word: len(filtered_word) >= 4, words))
+
+words = ['amor', 'sol', 'piedra', 'día']
+response = filter_by_length(words)
+print(response)
