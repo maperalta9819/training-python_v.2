@@ -101,3 +101,60 @@ def filter_by_length(words):
 words = ['amor', 'sol', 'piedra', 'día']
 response = filter_by_length(words)
 print(response)
+
+"""En este desafío, se te presenta una lista de objetos que representan órdenes de compra con los siguientes atributos:
+
+customer_name: string
+total: number
+delivered: boolean
+Tu reto es utilizar el concepto de módulos de Python para retornar la suma total de todas las órdenes de compra. Para resolver el ejercicio, debes trabajar en el archivo main.py, donde se encuentra la función get_total. Esta función recibe como parámetro la lista de órdenes de compra.
+
+Debes retornar la suma total de todas las órdenes haciendo uso de las funciones definidas en el archivo my_functions.py.my_functions.py."""
+
+
+from my_functions import get_totals
+from my_functions import calc_total
+def get_total(orders):
+  # Tu código aquí 👇
+  order_totals = get_totals(orders)
+  Sumatory = calc_total(order_totals)
+  return Sumatory
+
+orders = [
+  {
+    "customer_name": "Nicolas",
+    "total": 100,
+    "delivered": True,
+  },
+  {
+    "customer_name": "Zulema",
+    "total": 120,
+    "delivered": False,
+  },
+  {
+    "customer_name": "Santiago",
+    "total": 20,
+    "delivered": False,
+  }
+]
+
+total = get_total(orders)
+print(total)
+
+
+"""Para resolver este desafío, debes utilizar el archivo data.csv que contiene los datos de los gastos de una empresa. 
+El archivo tiene dos columnas: el nombre del área y el total de gastos del año.
+
+Tu reto es implementar la función read_csv que lee el archivo CSV y calcula el total de gastos de la empresa.
+Para leer el archivo CSV, puedes utilizar la función open y el módulo csv de Python. 
+Una vez que hayas leído los datos, puedes calcular el total de gastos implementando la lógica que consideres necesaria."""
+print ("\nTaller de CSV")
+import csv
+def read_csv(path):
+   # Tu código aquí 👇
+   with open(path, 'r') as csvfile:
+      total = sum(int(r[1]) for r in csv.reader(csvfile))
+      return total   
+
+response = read_csv('./app/data2.csv')
+print(response)
