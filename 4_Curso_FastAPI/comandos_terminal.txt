@@ -1,0 +1,9 @@
+Esta es una lista de los comandos usados en la terminal hasta el momento:
+
+Crear carpeta de virtualizacion
+proyecto-env\Scripts\activate
+source proyecto-env/Scripts/activate
+
+
+Levantar pagina usando uvicorn
+uvicorn main:app --reload --port 5000
