@@ -4,10 +4,10 @@
 #LIBRERIAS USADAS DENTRO DE VARIABLES
 from fastapi.security.http import HTTPAuthorizationCredentials
 from pydantic import BaseModel, Field
-from typing import Any, Coroutine, Optional,List
+from typing import Optional,List
 from fastapi.security import HTTPBearer
 from fastapi import HTTPException
-from jwt_manager import validate_token
+from jwt_manager import create_token, validate_token
 from starlette.requests import Request
 from Config.database import Session,engine,Base
 from models.movie import Movie as MovieModel
@@ -35,7 +35,7 @@ class Movie(BaseModel):
     category:str=Field(min_length=2,max_length=90)
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example":{
                 "id": 1,
                 "title": "Ingresa tu peli",

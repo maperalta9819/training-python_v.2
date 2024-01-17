@@ -1,17 +1,21 @@
 from variables import movies, User, Movie, JWTBearer
-from fastapi import FastAPI, Body, Path, Query, Depends
+from fastapi import FastAPI, Body, Path, Query, Depends,Request
 from fastapi.responses import HTMLResponse,JSONResponse
 from typing import List
-from jwt_manager import create_token
+from jwt_manager import create_token, validate_token
 from fastapi.security.http import HTTPAuthorizationCredentials
 from Config.database import Session,engine,Base
 from models.movie import Movie as MovieModel
 from fastapi.encoders import jsonable_encoder
+from middlewares.error_handler import ErrorHandler
+from middlewares.jwt_bearer import JWTBearer
 
 
 app = FastAPI()
 app.title = "Mi aplicación con  FastAPI"
 app.version = "0.0.1"
+
+app.add_middleware(ErrorHandler)
 
 #GENERACION DE LOGUEO DE USER
 @app.post('/login',tags=['auth'])
